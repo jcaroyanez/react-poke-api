@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useRoutes } from "react-router-dom";
+import PokeList from './components/poke-list/index/ListPoke';
+import DetailPoke from './components/detail-list/index/DetailPoke';
+import Container from './shared/container/Container';
 
 function App() {
+  const routes = useRoutes([
+    {
+      path: '/',
+      element: <PokeList />
+    },
+    {
+      path: 'list',
+      element: <PokeList />
+    },
+    {
+      path: 'detail/:id',
+      element: <DetailPoke />
+    }
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      {/* <div className={classes['container']}> */}
+        <Container>
+          {routes}
+        </Container>
+      {/* </div> */}
+    </>
+  )
 }
 
 export default App;
