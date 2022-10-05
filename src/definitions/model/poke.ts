@@ -5,13 +5,16 @@ export type itemPoke = {
 
 export type PokeReponse = {
     next: string;
-    results: itemPoke []
+    results: itemPoke [];
 }
 
 type OtherSprite = {
     dream_world: {
         front_default: string; 
-    } 
+    }
+    'official-artwork': {
+        front_default: string; 
+    }
 }
 
 type SpritesPoke = {
@@ -45,4 +48,10 @@ export type Pokemon = {
 export type PokemonData = {
     pokemons: Pokemon[],
     nextUrl: string;
+}
+
+export type PokeDetail = {
+    name: string;
+    id: number;
+    src: string;
 }

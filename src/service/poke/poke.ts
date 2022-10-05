@@ -1,4 +1,4 @@
-import { InforPokeResponse, Pokemon, PokemonData, PokeReponse, typesPoke } from "../../definitions/model/poke";
+import { InforPokeResponse, PokeDetail, Pokemon, PokemonData, PokeReponse, typesPoke } from "../../definitions/model/poke";
 import { fetcher } from "../../util/fetch";
 
 function mapTypes(types: typesPoke[]): string[]{
@@ -16,7 +16,7 @@ function mapPokemon(infoPokes: InforPokeResponse[]): Pokemon[] {
     });
 }
 
-async function fetchPoke(url: string): Promise<PokemonData> {
+export async function fetchPoke(url: string): Promise<PokemonData> {
     const pokePromises: Promise<InforPokeResponse>[] = [];
     const response = await fetcher<PokeReponse>(url);
     const nextUrl = response?.next;
@@ -32,4 +32,15 @@ async function fetchPoke(url: string): Promise<PokemonData> {
     };
 }
 
-export default fetchPoke;
+function mapDetailPoke(data: InforPokeResponse): PokeDetail {
+    return {
+        name: data.name,
+        src: data?.sprites.other['official-artwork'].front_default,
+        id: data.id
+    }
+}
+
+export async function fetchGetPoke(url: string): Promise<PokeDetail> {
+  const response = await fetcher<InforPokeResponse>(url);
+  return mapDetailPoke(response);
+}

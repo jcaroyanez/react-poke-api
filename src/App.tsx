@@ -14,7 +14,7 @@ function App() {
       element: <PokeList />
     },
     {
-      path: 'detail/:id',
+      path: 'detail/:name',
       element: <DetailPoke />
     }
   ]);

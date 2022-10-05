@@ -1,4 +1,4 @@
-import { useGetPoke, useNewPokemons } from "../../../hooks/detail/get-poke";
+import { useGetPokes, useNewPokemons } from "../../../hooks/detail/get-poke";
 import CardPoke from "../card-poke/CardPoke";
 import classes from './ListPoke.module.scss';
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -9,7 +9,7 @@ const URL = 'https://pokeapi.co/api/v2/pokemon?limit=30';
 
 function PokeList() {
     const [newUrl, setNewUrl] = useState(URL);
-    const { pokemons, nextUrl } = useGetPoke(newUrl);
+    const { pokemons, nextUrl } = useGetPokes(newUrl);
     const allPokemon = useNewPokemons(pokemons);
     const navigate = useNavigate();
 
