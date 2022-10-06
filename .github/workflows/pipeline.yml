@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
-      - name: Cancel rendudant pipeline
+      - name: Cancel Previous Runs
         uses: styfle/cancel-workflow-action
         with:
           access_token: ${{ github.token }}
