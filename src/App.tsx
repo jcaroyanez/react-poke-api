@@ -4,7 +4,7 @@ import DetailPoke from './components/detail-list/index/DetailPoke';
 import Container from './shared/container/Container';
 
 function App() {
-  const routes = useRoutes([
+  /*const routes = useRoutes([
     {
       path: '/',
       element: <PokeList />
@@ -17,7 +17,7 @@ function App() {
       path: 'detail/:name',
       element: <DetailPoke />
     }
-  ]);
+  ]);*/
 
   return (
     <>
