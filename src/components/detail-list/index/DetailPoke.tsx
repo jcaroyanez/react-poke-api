@@ -6,6 +6,7 @@ const URL = "https://pokeapi.co/api/v2/pokemon";
 
 function DetailPoke() {
     const { name } = useParams();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const data = useGetPoke(`${URL}/${name}`);
 
     return (
